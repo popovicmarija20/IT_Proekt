@@ -19,22 +19,59 @@ namespace IT_proekt.Controllers
         {
             return View(db.Pizzas.ToList());
         }
-
+        public int isExist(int id)
+        {
+            List<Item> cart = (List<Item>)Session["cart"];
+            for (int i = 0; i < cart.Count; i++)
+                if (cart[i].pizza.Id.Equals(id))
+                    return i;
+            return -1;
+          
+        }
         public ActionResult AddToCart(int id)
         {
-            Pizza model = new Pizza();
+            
             if (Session["cart"] == null)
             {
                 List<Item> cart = new List<Item>();
-                cart.Add(new Item { pizza = db.Pizzas.Find(id)});
+                cart.Add(new Item { pizza = db.Pizzas.Find(id), Quantity = 1 });
                 Session["cart"] = cart;
+                ViewBag.cart = cart.Count();
+                Session["count"] = 1;
             }
             else
             {
                 List<Item> cart = (List<Item>)Session["cart"];
-                cart.Add(new Item { pizza = db.Pizzas.Find(id) });
+                int index = isExist(id);
+                if (index != -1)
+                {
+                     cart[index].Quantity++;
+
+                }
+                else
+                {
+                    cart.Add(new Item { pizza = db.Pizzas.Find(id), Quantity = 1 });
+
+                }
                 Session["cart"] = cart;
+                ViewBag.cart = cart.Count();
+                Session["count"] = Convert.ToInt32(Session["count"]) + 1;
             }
+            //return View("AddToCart");
+            return RedirectToAction("Index");
+        }
+        public ActionResult MyOrder()
+        {
+            return View("AddToCart");
+        }
+
+        public ActionResult RemoveFromCart(int id)
+        {
+            List<Item> cart = (List<Item>)Session["cart"];
+            int index = isExist(id);
+            cart.RemoveAt(index);
+            Session["cart"] = cart;
+            Session["count"] = cart.Count();
             return View("AddToCart");
         }
 
