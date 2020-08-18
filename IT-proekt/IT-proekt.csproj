@@ -183,7 +183,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PizzasController.cs" />
-    <Compile Include="Controllers\PizzaServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,13 +202,16 @@
     <Compile Include="Migrations\202008172133530_ItemAdded.designer.cs">
       <DependentUpon>202008172133530_ItemAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008181130174_deletedModel.cs" />
+    <Compile Include="Migrations\202008181130174_deletedModel.designer.cs">
+      <DependentUpon>202008181130174_deletedModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pizza.cs" />
-    <Compile Include="Models\PizzaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -512,11 +514,6 @@
     <Content Include="Views\Pizzas\Details.cshtml" />
     <Content Include="Views\Pizzas\Edit.cshtml" />
     <Content Include="Views\Pizzas\Index.cshtml" />
-    <Content Include="Views\PizzaServices\Create.cshtml" />
-    <Content Include="Views\PizzaServices\Delete.cshtml" />
-    <Content Include="Views\PizzaServices\Details.cshtml" />
-    <Content Include="Views\PizzaServices\Edit.cshtml" />
-    <Content Include="Views\PizzaServices\Index.cshtml" />
     <Content Include="Views\Pizzas\AddToCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -547,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008172133530_ItemAdded.resx">
       <DependentUpon>202008172133530_ItemAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008181130174_deletedModel.resx">
+      <DependentUpon>202008181130174_deletedModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

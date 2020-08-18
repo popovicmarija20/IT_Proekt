@@ -14,12 +14,7 @@ namespace IT_proekt.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
-        public virtual List<PizzaService> pizzaServices { get; set; }
-
-        public Pizza()
-        {
-            pizzaServices = new List<PizzaService>();
-        }
+       
 
     }
 }

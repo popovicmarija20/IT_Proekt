@@ -32,6 +32,6 @@ namespace IT_proekt.Models
 
         public System.Data.Entity.DbSet<IT_proekt.Models.Pizza> Pizzas { get; set; }
 
-        public System.Data.Entity.DbSet<IT_proekt.Models.PizzaService> PizzaServices { get; set; }
+      
     }
 }
