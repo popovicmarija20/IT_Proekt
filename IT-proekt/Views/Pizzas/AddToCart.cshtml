@@ -3,44 +3,64 @@
     ViewBag.Title = "AddToCart";
 }
 
-
-<h3>Your Cart</h3>
-<table class="table" id="cartTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (IT_proekt.Models.Item item in (List<IT_proekt.Models.Item>)Session["cart"])
-        {
-        <tr>
-            <td>@item.pizza.Name</td>
-            <td>@item.Quantity</td>
-            <td>@(item.Quantity*item.pizza.Price)</td>
-            <td><a href="@Url.Action("RemoveFromCart", "Pizzas", new { id = item.pizza.Id })">Remove</a></td>
+    <body style="background-color:antiquewhite">
+        <div class="container" style="margin-top:10px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>In Your Cart</h3>
+                    <table class="table " id="cartTable" style="width:50%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Actions</th>
 
 
-        </tr>
-        }
-        <tr>
-            <td align="right" colspan="6">Sum</td>
-            <td>
-                @{
-                    List<IT_proekt.Models.Item> cart = (List<IT_proekt.Models.Item>)Session["cart"];
-                    var total = cart.Sum(item => item.pizza.Price * item.Quantity);
-                }
-                @total
-            </td>
-        </tr>
-    </tbody>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (IT_proekt.Models.Item item in (List<IT_proekt.Models.Item>)Session["cart"])
+                            {
+                                <tr>
+                                    <td>@item.pizza.Name</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@(item.Quantity*item.pizza.Price)</td>
+                                    <td><a href="@Url.Action("RemoveFromCart", "Pizzas", new { id = item.pizza.Id })" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" style="color:red"></span></a></td>
 
-</table>
-<br>
-<a href="@Url.Action("Index", "Pizzas")">Continue Shopping</a>
+
+                                </tr>
+                            }
+                            <tr>
+                    <td align="right" colspan="2" ><span style="font-style:italic">Total:</span></td>
+                    <td>
+                        @{
+                            List<IT_proekt.Models.Item> cart = (List<IT_proekt.Models.Item>)Session["cart"];
+                            var total = cart.Sum(item => item.pizza.Price * item.Quantity);
+                        }
+                        @total
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                   
+                    <br>
+                    <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm">Back to Menu</a>
+                    @if (total == 0)
+                    {
+                        <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm disabled">Continue to payment</a>
+
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm">Continue to payment</a>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </body>
 @section scripts {
     <script>
         $("#cartTable").DataTable();

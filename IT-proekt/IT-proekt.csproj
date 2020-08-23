@@ -206,6 +206,10 @@
     <Compile Include="Migrations\202008181130174_deletedModel.designer.cs">
       <DependentUpon>202008181130174_deletedModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008231139396_IngredientsAdded.cs" />
+    <Compile Include="Migrations\202008231139396_IngredientsAdded.designer.cs">
+      <DependentUpon>202008231139396_IngredientsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -381,6 +385,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="pizza1.jpg" />
+    <Content Include="pizza2.gif" />
+    <Content Include="pizza3.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -547,6 +554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008181130174_deletedModel.resx">
       <DependentUpon>202008181130174_deletedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231139396_IngredientsAdded.resx">
+      <DependentUpon>202008231139396_IngredientsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

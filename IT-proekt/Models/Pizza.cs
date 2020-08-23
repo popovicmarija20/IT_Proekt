@@ -14,7 +14,8 @@ namespace IT_proekt.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
-       
+        public string Ingredients { get; set; }
+
 
     }
 }

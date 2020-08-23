@@ -118,3 +118,4 @@ C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migratio
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.AddressAdded.resources
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.ItemAdded.resources
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.deletedModel.resources
+C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.IngredientsAdded.resources

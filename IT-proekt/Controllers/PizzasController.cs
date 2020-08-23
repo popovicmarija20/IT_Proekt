@@ -91,6 +91,8 @@ namespace IT_proekt.Controllers
         }
 
         // GET: Pizzas/Create
+
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -101,6 +103,8 @@ namespace IT_proekt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create([Bind(Include = "Id,Name,Price,Image")] Pizza pizza)
         {
             if (ModelState.IsValid)
@@ -114,6 +118,8 @@ namespace IT_proekt.Controllers
         }
 
         // GET: Pizzas/Edit/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -133,6 +139,8 @@ namespace IT_proekt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit([Bind(Include = "Id,Name,Price,Image")] Pizza pizza)
         {
             if (ModelState.IsValid)
@@ -143,6 +151,7 @@ namespace IT_proekt.Controllers
             }
             return View(pizza);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: Pizzas/Delete/5
         public ActionResult Delete(int? id)
@@ -160,6 +169,8 @@ namespace IT_proekt.Controllers
         }
 
         // POST: Pizzas/Delete/5
+        [Authorize(Roles = "Admin")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
