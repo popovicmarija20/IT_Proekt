@@ -11,7 +11,35 @@
         <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
         <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
 
+        <style>
+            #slika1{
+                
+            }
+            .container {
+                position: relative;
+               
+            }
 
+            .image1{
+                opacity:0.5
+            }
+
+              image1:hover {
+                    opacity: 1;
+                    cursor: pointer;
+                    transition: opacity .25s ease-in-out;
+                }
+            
+            .container .text1 {
+                position: absolute;
+                top: 35%;
+                z-index:999;
+                margin-left:20%;
+                color:white;
+            }
+          
+            
+        </style>
     </head>
 <body style="background-color:antiquewhite">
     <div class="row" >
@@ -44,6 +72,47 @@
                 </a>
             </div>
 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Our Story</h2>
+            <hr style="background-color:darkred; width:50vh; height:1vh"/>
+            <p>
+                We're a traditional pizza restaurant in Skopje since 1995.
+                Since we opened our first store, we’ve been making our thin crust pizza from scratch when you order it.
+                And we still use stone hearth ovens! That’s one of the reasons our unique pizzas are worth the wait!
+                We pride ourselves in offering you the very best pizza and we value your patronage.
+                We aim to serve the highest quality products and provide uncompromising heartfelt services to our valued guests and community.
+                We've gained a reputation for working with the finest quality ingredients no matter what.
+                For those ones that are lazy while their stomach is aching from hunger,
+                don't think you're going to wait for us whole day, you're getting your wood oven pizza on your doorstep immediately!
+            </p>
+        </div>
+     
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Our mission</h2>
+            <hr style="background-color:darkred; width:50vh; height:1vh" />
+        </div>
+        <div class="col-lg-4 container">
+            <img src="~/Images/pizza.jpg" class="img-responsive image1" />
+            <div class="text1">
+                <h2>EXCELENT PREPARATION</h2>
+            </div>
+        </div>
+        <div class="col-lg-4 container">
+            <img src="~/Images/pizza.jpg" class="img-responsive image1" />
+            <div class="text1">
+                <h2>SATISFACTION</h2>
+            </div>
+        </div>
+        <div class="col-lg-4 container">
+            <img src="~/Images/pizza.jpg" class="img-responsive image1" />
+            <div class="text1">
+                <h2>WELCOMING SERVICE</h2>
+            </div>
         </div>
     </div>
 
