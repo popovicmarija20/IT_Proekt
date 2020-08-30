@@ -65,6 +65,11 @@ namespace IT_proekt.Controllers
             return View("AddToCart");
         }
 
+        public ActionResult Payment()
+        {
+            return View("Payment");
+        }
+
         public ActionResult RemoveFromCart(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];

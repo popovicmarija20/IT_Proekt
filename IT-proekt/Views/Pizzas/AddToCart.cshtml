@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>In Your Cart</h3>
-                    <table class="table " id="cartTable" style="width:50%">
+                    <table class="table " id="cartTable" style="width:50%; border:2px solid darkred">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -20,43 +20,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (IT_proekt.Models.Item item in (List<IT_proekt.Models.Item>)Session["cart"])
-                            {
-                                <tr>
-                                    <td>@item.pizza.Name</td>
-                                    <td>@item.Quantity</td>
-                                    <td>@(item.Quantity*item.pizza.Price)</td>
-                                    <td><a href="@Url.Action("RemoveFromCart", "Pizzas", new { id = item.pizza.Id })" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" style="color:red"></span></a></td>
+                             @foreach (IT_proekt.Models.Item item in (List<IT_proekt.Models.Item>)Session["cart"])
+                                {
+                                    <tr>
+                                        <td>@item.pizza.Name</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@(item.Quantity * item.pizza.Price)</td>
+                                        <td><a href="@Url.Action("RemoveFromCart", "Pizzas" , new { id=item.pizza.Id })" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash" style="color:red"></span></a></td>
 
 
-                                </tr>
-                            }
-                            <tr>
-                    <td align="right" colspan="2" ><span style="font-style:italic">Total:</span></td>
-                    <td>
-                        @{
-                            List<IT_proekt.Models.Item> cart = (List<IT_proekt.Models.Item>)Session["cart"];
-                            var total = cart.Sum(item => item.pizza.Price * item.Quantity);
-                        }
-                        @total
-                    </td>
-                </tr>
-
-                        </tbody>
-                    </table>
-                   
-                    <br>
+                                    </tr>
+                                    }
+                                    <tr>
+                                        <td align="right" colspan="2"><span style="font-style:italic">Total:</span></td>
+                                        <td>
+                                            @{
+                                            List<IT_proekt.Models.Item>cart = (List<IT_proekt.Models.Item>)Session["cart"];
+                                                    var total = cart.Sum(item => item.pizza.Price * item.Quantity);
+                                            }
+                                           @total
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                                
                     <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm">Back to Menu</a>
-                    @if (total == 0)
+                    @if(total == 0)
                     {
                         <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm disabled">Continue to payment</a>
 
                     }
                     else
                     {
-                        <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm">Continue to payment</a>
+                        <a href="@Url.Action("Payment", "Pizzas")" class="btn btn-default btn-sm">Continue to payment</a>
 
                     }
+                                            
+
+                    <br>
+
                 </div>
             </div>
         </div>

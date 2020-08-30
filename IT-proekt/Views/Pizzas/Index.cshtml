@@ -4,88 +4,152 @@
     ViewBag.Title = "Index";
 }
 
-
+<style>
+    #pizzaItem:hover{
+        cursor:pointer;
+        background-color:blanchedalmond;
+    }
+</style>
 <body style="background-color:antiquewhite">
     <div class="container-fluid" style="width:150vh; margin-top:10px;">
 
         <div class="row">
             <div class="col-md-12 text-center">
-                <h2 style="color:gray;">What we offer</h2>
+                <h2>What we offer</h2>
+                <hr style="background-color:darkred; width:50vh; height:1vh" />
                 @if (User.IsInRole("Admin"))
                 {
-                    <p>
-                        @Html.ActionLink("Create New", "Create")
-                    </p>
+            
+               
+                <a href="@Url.Action("Create", "Pizzas")" class="btn btn-default btn-sm">Create new</a>
+            
                 }
 
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-12 text-right" style="margin-bottom:2px;">
+            <div class="col-lg-12">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 text-center" style="margin-bottom:2px;">
                     @*MyOrder-name of action, Pizzas-Controlerr*@
                     <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>Cart <span class="badge">@Session["count"]</span>
                     </a>
+
                 </div>
 
-                <table class="table table-bordered" id="pizzaTable">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Price)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Image)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        @foreach (var item in Model)
+                @* <table class="table table-bordered" id="pizzaTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <img src="@item.Image" style="max-width:200px; min-width:200px; max-height:100px" />
+                    </td>
+                    <td>
+                        @if (User.IsInRole("Admin"))
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Price)
-                                </td>
-                                <td>
-                                    <img src="@item.Image" style="max-width:200px; max-height:100px" />
-                                </td>
-                                <td>
-                                    @if (User.IsInRole("Admin"))
-                                    {
-                                        <a href="@Url.Action("Edit", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Edit</a>
-                                        <a href="@Url.Action("Details", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
-                                        <a href="@Url.Action("Delete", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Delete</a>
-                                        <a href="@Url.Action("AddToCart", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
-                                    }
-                                    else if (User.IsInRole("User"))
-                                    {
-                                        <a href="@Url.Action("Details", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
-                                        <a href="@Url.Action("AddToCart", "Pizzas", new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
+                        <a href="@Url.Action(" Edit", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Edit</a>
+                        <a href="@Url.Action(" Details", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
+                        <a href="@Url.Action(" Delete", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Delete</a>
+                        <a href="@Url.Action(" AddToCart", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
+                        }
+                        else if (User.IsInRole("User"))
+                        {
+                        <a href="@Url.Action(" Details", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
+                        <a href="@Url.Action(" AddToCart", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
 
-                                    }
-
-
-
-
-                                </td>
-                            </tr>
                         }
 
-                    </tbody>
-                </table>
+
+
+
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>*@
+
             </div>
-        </div>
+
+
+
+
+
+            </div>
     </div>
 </body>
+
+
+<div class="row">
+    <div class="col-lg-12">
+
+        @foreach (var item in Model)
+        {
+
+        <div style="border:2px solid darkred; margin-top:10px; margin-left:5px; width:45vh" class="col-md-4 text-center" id="pizzaItem">
+            <header>
+                <img src="@item.Image" style="max-width:30vh; min-width:30vh; max-height:100px; margin-top:2px;" class="img-thumbnail" />
+            </header>
+            <div>
+                <span style="font-style:oblique">Name:</span>  @Html.DisplayFor(modelItem => item.Name)
+
+            </div>
+            <div>
+                <span style="font-style:oblique">Ingredients:</span>  @Html.DisplayFor(modelItem => item.Ingredients)
+
+            </div>
+            <div>
+                <span style="font-style:oblique">Price:</span> @Html.DisplayFor(modelItem => item.Price)
+
+            </div>
+            <footer style="margin-bottom:5px;">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("Edit", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Edit</a>
+                    <a href="@Url.Action("Details", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
+                    <a href="@Url.Action("Delete", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Delete</a>
+                    <a href="@Url.Action("AddToCart", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
+                }
+                else if (User.IsInRole("User"))
+                {
+                    <a href="@Url.Action("Details", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Details</a>
+                    <a href="@Url.Action("AddToCart", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
+
+                }
+            </footer>
+        </div>
+
+
+        }
+    </div>
+</div>
+
+
 @section scripts {
     <script>
         $("#pizzaTable").DataTable();
