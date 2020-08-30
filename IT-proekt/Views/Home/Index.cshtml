@@ -2,47 +2,42 @@
     ViewBag.Title = "Home Page";
 
 }
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
-        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-        <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-        <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-        <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
 
-        <style>
-            #slika1{
-                
-            }
-            .container {
-                position: relative;
-               
+    <style>
+
+        .container {
+            position: relative;
+        }
+
+        .image1 {
+            opacity: 0.5
+        }
+
+            .image1:hover {
+                opacity: 1;
+                cursor: pointer;
+                transition: opacity .25s ease-in-out;
             }
 
-            .image1{
-                opacity:0.5
-            }
-
-              image1:hover {
-                    opacity: 1;
-                    cursor: pointer;
-                    transition: opacity .25s ease-in-out;
-                }
-            
-            .container .text1 {
-                position: absolute;
-                top: 35%;
-                z-index:999;
-                margin-left:20%;
-                color:white;
-            }
-          
-            
-        </style>
-    </head>
+        .container .text1 {
+            position: absolute;
+            top: 35%;
+            z-index: 999;
+            margin-left: 20%;
+            color: white;
+        }
+    </style>
+</head>
 <body style="background-color:antiquewhite">
-    <div class="row" >
+    <div class="row">
         <div class="col-lg-12 text-center">
             <div id="demo" class="carousel slide" data-ride="carousel" data-interval="2000">
                 <ol class="carousel-indicators">
@@ -77,7 +72,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h2>Our Story</h2>
-            <hr style="background-color:darkred; width:50vh; height:1vh"/>
+            <hr style="background-color:darkred; width:50vh; height:1vh" />
             <p>
                 We're a traditional pizza restaurant in Skopje since 1995.
                 Since we opened our first store, we’ve been making our thin crust pizza from scratch when you order it.
@@ -89,7 +84,7 @@
                 don't think you're going to wait for us whole day, you're getting your wood oven pizza on your doorstep immediately!
             </p>
         </div>
-     
+
     </div>
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -116,8 +111,23 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Where to find us</h2>
+            <hr style="background-color:darkred; width:50vh; height:1vh" />
+            <div class="gmap_canvas"><iframe width="1140" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Finki&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
 
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            <hr />
+            <div class="col text-center">
+                <small>FINKI 2020 &copy;</small>
+            </div>
+            </div>
+    </footer>
 </body>
-
 
 
