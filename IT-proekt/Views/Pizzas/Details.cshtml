@@ -4,10 +4,15 @@
     ViewBag.Title = "Details";
 }
 
+<style>
+    #details {
+        box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+    }
+</style>
 
     <body style="background-color:antiquewhite">
        <div class="row">
-           <div class="col-lg-6" style="border:2px solid darkred; margin-top:5%; margin-left:20%;">
+           <div class="col-lg-6" style="border:1px solid darkred; margin-top:5%; margin-left:20%;" id="details">
                <h2>Details about the pizza</h2>
 
                <div>
@@ -46,11 +51,20 @@
                    </dl>
                </div>
                <p>
-                   @Html.ActionLink("Edit Pizza", "Edit", new { id = Model.Id }) |
-                   @Html.ActionLink("Back to Menu", "Index")
+                   @if (User.IsInRole("Admin"))
+                   {
+                       @Html.ActionLink("Edit Pizza", "Edit", new { id = Model.Id })
+
+                   }
+                   else
+                   {
+                       @Html.ActionLink("Back to Menu", "Index")
+
+                   }
                </p>
 
            </div>
 
        </div>
+
     </body>
