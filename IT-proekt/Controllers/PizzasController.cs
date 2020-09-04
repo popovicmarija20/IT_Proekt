@@ -159,31 +159,13 @@ namespace IT_proekt.Controllers
         [Authorize(Roles = "Admin")]
 
         // GET: Pizzas/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Pizza pizza = db.Pizzas.Find(id);
-            if (pizza == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pizza);
-        }
-
-        // POST: Pizzas/Delete/5
-        [Authorize(Roles = "Admin")]
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Pizza pizza = db.Pizzas.Find(id);
-            db.Pizzas.Remove(pizza);
+            Pizza model = db.Pizzas.Find(id);
+            db.Pizzas.Remove(model);
             db.SaveChanges();
             return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)

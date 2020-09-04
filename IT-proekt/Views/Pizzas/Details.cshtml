@@ -4,45 +4,53 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Pizza</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <body style="background-color:antiquewhite">
+       <div class="row">
+           <div class="col-lg-6" style="border:2px solid darkred; margin-top:5%; margin-left:20%;">
+               <h2>Details about the pizza</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+               <div>
+                   
+                   <dl class="dl-horizontal">
+                       <dt>
+                           @Html.DisplayNameFor(model => model.Name)
+                       </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                       <dd>
+                           @Html.DisplayFor(model => model.Name)
+                       </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ingredients)
-        </dd>
+                       <dt>
+                           @Html.DisplayNameFor(model => model.Price)
+                       </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+                       <dd>
+                           @Html.DisplayFor(model => model.Price)
+                       </dd>
+                       <dt>
+                           @Html.DisplayNameFor(model => model.Ingredients)
+                       </dt>
+                       <dd>
+                           @Html.DisplayFor(model => model.Ingredients)
+                       </dd>
 
-        <dd>
-            <img src="@Model.Image" style="max-height:100px; max-width:200px" />
-        </dd>
+                       <dt>
+                           @Html.DisplayNameFor(model => model.Image)
+                       </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                       <dd>
+                           <img src="@Model.Image" style="max-height:100px; max-width:200px" />
+                       </dd>
+
+                   </dl>
+               </div>
+               <p>
+                   @Html.ActionLink("Edit Pizza", "Edit", new { id = Model.Id }) |
+                   @Html.ActionLink("Back to Menu", "Index")
+               </p>
+
+           </div>
+
+       </div>
+    </body>

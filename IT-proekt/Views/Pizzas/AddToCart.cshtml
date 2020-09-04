@@ -3,12 +3,35 @@
     ViewBag.Title = "AddToCart";
 }
 
-    <body style="background-color:antiquewhite">
+<body style="background-color:antiquewhite">
+   <div class="container" style="margin-top:5%;">
+       <div class="car"></div>
+       <div class="row">
+           <div class="col-lg-6">
+               @foreach (IT_proekt.Models.Item item in (List<IT_proekt.Models.Item>)Session["cart"])
+               {
+               <div id="orderedItem" style="background-color:white">
+                   <h4>Name:</h4><p>@item.pizza.Name</p>
+                   <h6>Quantity:</h6><p>@item.Quantity</p>
+
+
+               </div>
+               }
+           </div>
+       </div>
+   </div>
+
+</body>
+
+
+
+
+@*<body style="background-color:antiquewhite">
         <div class="container" style="margin-top:10px;">
             <div class="row">
                 <div class="col-md-12">
                     <h3>In Your Cart</h3>
-                    <table class="table " id="cartTable" style="width:50%; border:2px solid darkred">
+                    <table class="table " id="cartTable" style="width:50%; background-color:white">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -43,7 +66,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                                                
+
                     <a href="@Url.Action("Index", "Pizzas")" class="btn btn-default btn-sm">Back to Menu</a>
                     @if(total == 0)
                     {
@@ -55,17 +78,17 @@
                         <a href="@Url.Action("Payment", "Pizzas")" class="btn btn-default btn-sm">Continue to payment</a>
 
                     }
-                                            
+
 
                     <br>
 
                 </div>
             </div>
         </div>
-    </body>
+    </body>*@
 @section scripts {
     <script>
-        $("#cartTable").DataTable();
+
 
     </script>
 }
