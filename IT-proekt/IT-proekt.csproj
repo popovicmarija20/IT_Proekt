@@ -386,8 +386,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\delicious-fresh-pizza-served-wooden-table_127657-159.jpg" />
+    <Content Include="Images\download.jpg" />
     <Content Include="Images\hot-pizza-slice-with-melting-cheese_34936-282.jpg" />
     <Content Include="Images\pizza.jpg" />
+    <Content Include="Images\pizza5.jpg" />
+    <Content Include="Images\pizza6.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />

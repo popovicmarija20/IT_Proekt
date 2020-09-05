@@ -67,7 +67,11 @@ namespace IT_proekt.Controllers
 
         public ActionResult Payment()
         {
+           
             return View("Payment");
+
+            
+
         }
 
         public ActionResult RemoveFromCart(int id)
