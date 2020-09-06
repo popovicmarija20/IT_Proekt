@@ -28,6 +28,14 @@ namespace IT_proekt.Controllers
             return -1;
           
         }
+     
+        [HttpPost]
+        public ActionResult FinishOrder()
+        {
+            Session["count"] = null;
+            Session["cart"] = null;
+            return View("FinishOrder");
+        }
         public ActionResult AddToCart(int id)
         {
             

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IT_proekt.Models.Item>
+﻿@model  IT_proekt.Models.OrderForm
 @{
     ViewBag.Title = "Payment";
 }
@@ -9,54 +9,114 @@
     }
 </style>
 <body style="background-color:antiquewhite">
-
-    <div class="container">
-        <div class="page-header text-center">
-
-        </div>
-        <!-- Credit Card Payment Form - START -->
+    @using (Html.BeginForm("FinishOrder","Pizzas", FormMethod.Post))
+    { 
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-4 col-md-offset-4">
-                    <div class="panel panel-default" id="payment">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <h3 class="text-center">Payment Details</h3>
+            <div class="page-header text-center">
 
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <form role="form">
+            </div>
+            <!-- Credit Card Payment Form - START -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 col-md-offset-4">
+                        <div class="panel panel-default" id="payment">
+                            <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>CARD NUMBER</label>
-                                            <div class="form-group"> <input type="text" class="form-control" placeholder="Valid Card Number" style="width:100%" id="cardNumber" /> </div>
+                                    <h3 class="text-center">Payment Details</h3>
+
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-7 col-md-7">
-                                        <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="text" class="form-control" placeholder="MM / YY" id="expiration" /> </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-5 col-md-5 pull-right">
-                                        <div class="form-group"> <label>CV CODE</label> <input type="text" class="form-control" placeholder="CVC" id="cvc" /> </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.CardNumber, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-7" style="margin-left:15px;">
+                                                @Html.LabelFor(model => model.Expiration, htmlAttributes: new { @class = "control-label col-md-5" })
+                                                <div>
+                                                    @Html.EditorFor(model => model.Expiration, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Expiration, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-3">
+
+                                                @Html.LabelFor(model => model.Cvc, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div>
+                                                    @Html.EditorFor(model => model.Cvc, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Cvc, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.CardOwner, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.CardOwner, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.CardOwner, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" id="owner" /> </div>
+                                        <button class="btn btn-danger btn-lg btn-block" type="submit" id="confirmPayment">
+                                            Confirm Payment
+                                        </button>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <button class="btn btn-danger btn-lg btn-block" id="confirmPayment"
-                                            href="@Url.Action("Index", "Pizzas")">
-                                        Confirm Payment
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +124,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="row">
         <div class="col-lg-12 text-center" style="margin-left:20px;">
             <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-sm btn-link">Go Back</a>
@@ -72,44 +131,7 @@
 
         </div>
     </div>
+    }
 </body>
+@Scripts.Render("~/bundles/jqueryval")
 
-@section scripts {
-   
-    <script>
-        $("#confirmPayment").on("click", function (e) {
-            var cardNumber = $("#cardNumber").attr("id");
-            var expiration = $("#expiration").attr("id");
-            var cvc = $("#cvc").attr("id");
-            var addressValue = $("#confirmPayment").attr("href");
-            var owner = $("#owner").attr("id");
-            e.stopPropagation();
-            e.preventDefault();
-            if (cardNumber. && expiration.length != 0 && cvc.length != 0 && owner.length!=0) {
-                var dialog = bootbox.dialog({
-                    message: "<p>Your payment has been succesful!</p>",
-                    size: 'large',
-                    buttons: {
-                        ok: {
-                            label: "OK",
-                            className: 'btn-info',
-                            callback: function () {
-                                 @{
-                                     Session["count"] = null;
-                                     Session["cart"] = null;
-                                   }
-
-                                window.location = addressValue;
-
-
-                            }
-                        }
-                    }
-                });
-            }
-           
-
-        });
-
-    </script>
-}
