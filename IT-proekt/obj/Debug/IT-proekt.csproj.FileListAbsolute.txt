@@ -123,3 +123,5 @@ C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migratio
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.regex.resources
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.regex1.resources
 C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.regex2.resources
+C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.ingredientAdded.resources
+C:\Users\Dell\Desktop\IT-proekt\IT-proekt\IT-proekt\obj\Debug\IT_proekt.Migrations.igradieeeentremoved.resources

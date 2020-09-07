@@ -122,7 +122,7 @@ namespace IT_proekt.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
 
-        public ActionResult Create([Bind(Include = "Id,Name,Price,Image")] Pizza pizza)
+        public ActionResult Create([Bind(Include = "Id,Name,Price,Image,Ingredients")] Pizza pizza)
         {
             if (ModelState.IsValid)
             {
@@ -158,7 +158,7 @@ namespace IT_proekt.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
 
-        public ActionResult Edit([Bind(Include = "Id,Name,Price,Image")] Pizza pizza)
+        public ActionResult Edit([Bind(Include = "Id,Name,Price,Image,Ingredients")] Pizza pizza)
         {
             if (ModelState.IsValid)
             {

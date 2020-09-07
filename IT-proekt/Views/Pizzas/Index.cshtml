@@ -26,7 +26,7 @@
                 {
             
                
-                <a href="@Url.Action("Create", "Pizzas")" class="btn btn-default btn-sm">Create new</a>
+                <a href="@Url.Action("Create", "Pizzas")" class="btn btn-default btn-sm">Create new pizza</a>
             
                 }
 
@@ -36,29 +36,33 @@
             <div class="col-lg-12">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4"></div>
-                <div class="col-lg-4 text-center" style="margin-bottom:2px;">
-                    @*MyOrder-name of action, Pizzas-Controlerr*@
-                    @if (Session["count"] == null)
-                    {
-                        <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-success btn-sm disabled">
-                            <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>Cart <span class="badge">@Session["count"]</span>
-                        </a>
-                    }
-                    else if (Session["count"] != null && Session["count"].ToString().Equals("0"))
-                    {
-                        <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-default btn-sm disabled">
-                            <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>Cart <span class="badge"></span>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-success btn-sm">
-                            <span class="glyphicon glyphicon-shopping-cart" style="color:darkred;"></span>Cart <span class="badge">@Session["count"]</span>
-                        </a>
-                    }
+                @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                {
+                    <div class="col-lg-4 text-center" style="margin-bottom:2px;">
+                        @*MyOrder-name of action, Pizzas-Controlerr*@
+                        @if (Session["count"] == null)
+                        {
+                            <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-success btn-sm disabled">
+                                <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>Cart <span class="badge">@Session["count"]</span>
+                            </a>
+                        }
+                        else if (Session["count"] != null && Session["count"].ToString().Equals("0"))
+                        {
+                            <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-default btn-sm disabled">
+                                <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>Cart <span class="badge"></span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("MyOrder", "Pizzas")" class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-shopping-cart" style="color:darkred;"></span>Cart <span class="badge">@Session["count"]</span>
+                            </a>
+                        }
 
 
-                </div>
+                    </div>
+                }
+
             </div>
 
 
@@ -81,19 +85,20 @@
                 <img src="@item.Image" style="max-width:30vh; min-width:30vh; max-height:100px; margin-top:2px;" class="img-thumbnail" />
             </header>
             <div>
-                <span style="font-style:oblique">Name:</span>  @Html.DisplayFor(modelItem => item.Name)
+                <span style="font-style:oblique"><strong>Name:</strong></span>  @Html.DisplayFor(modelItem => item.Name)
+
+            </div>
+
+            <div>
+                <span style="font-style:oblique"><strong>Price:</strong></span> @Html.DisplayFor(modelItem => item.Price)$
 
             </div>
            
-            <div>
-                <span style="font-style:oblique">Price:</span> @Html.DisplayFor(modelItem => item.Price)
-
-            </div>
             <footer style="margin-bottom:5px;">
                 @if (User.IsInRole("Admin"))
                 {
                     <a href="@Url.Action("Edit", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Edit</a>
-                    <a  class="btn btn-default btn-sm js-delete"  href ="@Url.Action("Delete", "Pizzas" , new { id=item.Id})"data-id="@item.Id">Delete</a>
+                    <a class="btn btn-default btn-sm js-delete" href="@Url.Action("Delete", "Pizzas" , new { id=item.Id})" data-id="@item.Id">Delete</a>
                     <a href="@Url.Action("AddToCart", "Pizzas" , new { id=item.Id})" class="btn btn-default btn-sm">Add to Cart</a>
                 }
                 else if (User.IsInRole("User"))

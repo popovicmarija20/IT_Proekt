@@ -17,5 +17,6 @@ namespace IT_proekt.Models
         public string Ingredients { get; set; }
 
 
+
     }
 }

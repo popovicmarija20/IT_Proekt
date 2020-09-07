@@ -227,6 +227,14 @@
     <Compile Include="Migrations\202009061729066_regex2.designer.cs">
       <DependentUpon>202009061729066_regex2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009061906090_ingredientAdded.cs" />
+    <Compile Include="Migrations\202009061906090_ingredientAdded.designer.cs">
+      <DependentUpon>202009061906090_ingredientAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009071108189_igradieeeentremoved.cs" />
+    <Compile Include="Migrations\202009071108189_igradieeeentremoved.designer.cs">
+      <DependentUpon>202009071108189_igradieeeentremoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -597,6 +605,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009061729066_regex2.resx">
       <DependentUpon>202009061729066_regex2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009061906090_ingredientAdded.resx">
+      <DependentUpon>202009061906090_ingredientAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071108189_igradieeeentremoved.resx">
+      <DependentUpon>202009071108189_igradieeeentremoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

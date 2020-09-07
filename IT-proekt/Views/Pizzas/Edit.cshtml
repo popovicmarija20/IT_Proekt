@@ -3,10 +3,18 @@
 @{
     ViewBag.Title = "Edit";
 }
+
+    <style>
+        #edit {
+            box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+        }
+    </style>
+
+
     <body style="background-color:antiquewhite">
 
         <div class="row">
-            <div class="col-lg-6" style="border:2px solid darkred; margin-top:5%; margin-left:20%"> 
+            <div class="col-lg-6" style="border:2px solid darkred; margin-top:5%; margin-left:20%"  id="edit"> 
                 <h2>Edit</h2>
 
                 @using (Html.BeginForm())
@@ -58,10 +66,15 @@
                     </div>
                 }
 
+               
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-lg-10 text-center" style="margin-top:10px;">
                 <div>
                     @Html.ActionLink("Back to Menu", "Index")
                 </div>
             </div>
-           
         </div>
     </body>
