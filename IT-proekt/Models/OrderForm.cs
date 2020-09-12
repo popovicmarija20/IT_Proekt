@@ -28,7 +28,7 @@ namespace IT_proekt.Models
         [RegularExpression("^[0-9]{5}$", ErrorMessage = "Must contain 5 numbers")]
         public string CardNumber { get; set; }
         [Required]
-        [RegularExpression("^[0-9][0-9]/[0-9][0-9]$", ErrorMessage = "Date must be in format 00/00")]
+        [RegularExpression("^[0-9][0-9]/[0-9][0-9]$", ErrorMessage = "Date must be in format xx/xx")]
         public string Expiration { get; set; }
         [Required]
 
